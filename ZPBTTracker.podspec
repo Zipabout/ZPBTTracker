@@ -23,7 +23,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker", :tag => "1.0.0" }
 
   s.source_files = "ZPBTTracker", "ZPBTTracker/**/*.{h,m}"
-
+	
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => ‘2.2’ }
 
 
 end
