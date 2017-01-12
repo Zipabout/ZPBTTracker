@@ -47,7 +47,7 @@
         [self setReferer:pageName];
         [Common setPageClickID:clickID forPage:pageName]; }
     else {
-        [Common showAlertWithTitle:@"Missing Configuration" andMessage:@"Please check .plist file and set appropriate values"];
+        NSLog(@"Missing Configuration .plist. Please check .plist file and set appropriate values");
         
     }
     
@@ -71,7 +71,7 @@
         NSLog(@"Session Post String================>>>>> %@",postString);
         Webservice *service = [Webservice sharedInstance];
         
-        [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession, NSError *error) {
+        [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession,NSInteger responseCode) {
             if(data != nil) {
                 NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"================>>>>> %@",string);
@@ -79,6 +79,16 @@
                     NSLog(@"Page name===========>>>>> %@", pageSession.clickdestination);
                     [session.sessionArray removeObject:pageSession];
                     
+                }
+            } else {
+                if(responseCode == 0) {
+                    [self stopSending];
+                } else {
+                    if([session.sessionArray containsObject:pageSession]) {
+                        NSLog(@"Page name===========>>>>> %@", pageSession.clickdestination);
+                        [session.sessionArray removeObject:pageSession];
+                        
+                    }
                 }
             }
         }];

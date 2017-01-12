@@ -25,20 +25,30 @@
 }
 
 - (void) trackEventInPage:(NSString *) pageName  customParameter: (NSDictionary *) parameter {
-    
-    NSString *trackID = [Common getTrackID];
-    if(trackID != nil) {
-        NSString *clickID = [Common getClickIDForPage:pageName];
-        NSString *dateString = [Common getLogDate];
-        if(clickID != nil) {
-            Events *event = [[Events alloc] initEventPageclickGUID:clickID cID:[Common getTrackID] customParameter:parameter logDate:dateString];
-            Session *session =   [Session  sharedInstance];
-            [session.eventArray addObject:event];
-            [self trackEventSession];
+    if(parameter != nil) {
+        NSString *trackID = [Common getTrackID];
+        if(trackID != nil) {
+            NSString *clickID = [Common getClickIDForPage:pageName];
+            NSString *dateString = [Common getLogDate];
+            if(clickID != nil) {
+                Events *event = [[Events alloc] initEventPageclickGUID:clickID cID:[Common getTrackID] customParameter:parameter logDate:dateString];
+                Session *session =   [Session  sharedInstance];
+                [session.eventArray addObject:event];
+                [self trackEventSession];
+            } else {
+                NSNumber *tracking = [Common automaticSessionTracking];
+                if(tracking != nil) {
+                    NSInteger track = [tracking integerValue];
+                    if(track == 0) {
+                        NSLog(@"Please add manual page session in viewWillAppear method to enable event tracking");
+                    }
+                }
+            }
         }
-    }
-    else {
-        [Common showAlertWithTitle:@"Missing Configuration" andMessage:@"Please check .plist file and set appropriate values"];
+        
+        else {
+            NSLog(@"Missing Configuration .plist. Please check .plist file and set appropriate values");
+        }
     }
 }
 
@@ -65,9 +75,9 @@
         NSLog(@"Event Post String================>>>>> %@",postString);
         Webservice *service = [Webservice sharedInstance];
         
-        [service  sendRequestToURL:eventURL withData:postString session:event success: ^(NSData *data, Events *event, NSError *error) {
+        [service  sendRequestToURL:eventURL withData:postString session:event success: ^(NSData *data, Events *event, NSInteger responseCode) {
             if(data != nil) {
-                
+                NSLog(@"================>>>>> %d",responseCode);
                 NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"================>>>>> %@",string);
                 if([session.eventArray containsObject:event]) {
@@ -76,15 +86,18 @@
                     
                 }
             } else {
-                if([session.eventArray containsObject:event]) {
-                    NSLog(@"Page name===========>>>>> %@", event.clickGUID);
-                    [session.eventArray removeObject:event];
+                if(responseCode == 0) {
+                    [self stopSending];
+                } else {
+                    if([session.eventArray containsObject:event]) {
                     
+                        [session.eventArray removeObject:event];
+                        
+                    }
                 }
-                
             }
             
-
+            
         }];
         
     } else {

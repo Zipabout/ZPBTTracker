@@ -46,7 +46,7 @@
             }
         }
     } else {
-        [Common showAlertWithTitle:@"Missing Configuration" andMessage:@"Please check .plist file and set appropriate values"];
+        NSLog(@"Missing Configuration .plist. Please check .plist file and set appropriate values");
         
     }
 }

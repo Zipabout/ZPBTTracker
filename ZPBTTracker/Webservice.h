@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PageSession.h"
-typedef void (^ SuccessBlock)(NSData *data, id pageSession,  NSError *error);
+typedef void (^ SuccessBlock)(NSData *data, id pageSession,  NSInteger responseCode);
 
 @interface Webservice : NSObject
 + (instancetype)sharedInstance;

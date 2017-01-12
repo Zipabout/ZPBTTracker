@@ -27,6 +27,7 @@
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
+    
     //Create an URLRequest
     NSURL *url = [NSURL URLWithString:URL];
     
@@ -34,22 +35,60 @@
     
     [urlRequest setHTTPMethod:@"POST"];
     
-    [urlRequest setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    NSData *requestdata = [postString dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        if (error) {
+    if (requestdata != nil) {
+        NSURLSessionUploadTask *uploadTask = [defaultSession uploadTaskWithRequest:urlRequest fromData:requestdata completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-            NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
-             success(nil,track,error);
-        } else if(data != nil)  {
-             success(data,track,nil);
-        }
+            NSInteger responseCode = (long)[httpResponse statusCode];
+            if (error) {
+                
+                success(nil,track, responseCode);
+                
+            } else if(data != nil)  {
+                
+                success(data,track,responseCode);
+            }
+            
+            
+        }];
         
-        
-    }];
+        [uploadTask resume];
+    }
     
-    [dataTask resume];
+    
+    //Create an URLRequest
+    /*NSURL *url = [NSURL URLWithString:URL];
+     
+     
+     // 2
+     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+     request.HTTPMethod = @"POST";
+     
+     // 3
+     NSDictionary *dictionary = @{@"key1": @"value1"};
+     NSError *error = nil;
+     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
+     options:kNilOptions error:&error];
+     
+     if (!error) {
+     // 4
+     NSURLSessionUploadTask *uploadTask = [defaultSession uploadTaskWithRequest:request
+     fromData:data completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
+     
+     if (error) {
+     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+     NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
+     success(nil,track,error);
+     } else if(data != nil)  {
+     success(data,track,nil);
+     }
+     
+     
+     }];
+     
+     [uploadTask resume];
+     }*/
     
 }
 
