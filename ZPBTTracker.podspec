@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "ZPBTTracker"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A three-ring control like the Activity status bars"
   s.description  = "The three-ring is a completely customizable widget that can be used in any iOS app. It also plays a little victory fanfare."
   s.homepage     = "http://google.com"
@@ -20,11 +20,11 @@ Pod::Spec.new do |s|
   s.author       = "Zipabout"
   s.platform     = :ios, "8.0"
   
-  s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker.git", :tag => "1.0.1" }
 
   s.source_files = "ZPBTTracker", "ZPBTTracker/**/*.{h,m}"
 	
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => ‘2.2’ }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '2.2' }
 
 
 end
