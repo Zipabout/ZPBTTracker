@@ -77,8 +77,7 @@
         
         [service  sendRequestToURL:eventURL withData:postString session:event success: ^(NSData *data, Events *event, NSInteger responseCode) {
             if(responseCode == 200) {
-   
-               
+                
                 if([session.eventArray containsObject:event]) {
     
                     [session.eventArray removeObject:event];

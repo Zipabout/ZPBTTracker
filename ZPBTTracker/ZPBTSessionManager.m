@@ -64,17 +64,17 @@
 -(void) startSession{
     Session *session = [Session sharedInstance];
     NSString *sessionURL = [Common getSessionURL];
-
+    
     if ([session.sessionArray count] > 0 ) {
         PageSession *pageSession = session.sessionArray.firstObject;
         NSString * postString = [self generateSessionPostString:pageSession];
-
+        
         Webservice *service = [Webservice sharedInstance];
         
         [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession,NSInteger responseCode) {
             if(responseCode == 200) {
-          if([session.sessionArray containsObject:pageSession]) {
-    
+                if([session.sessionArray containsObject:pageSession]) {
+                    
                     [session.sessionArray removeObject:pageSession];
                     
                 }
@@ -89,7 +89,7 @@
 }
 
 -(void) stopSending {
-
+    
     [_timer invalidate];
     _timer = nil;
 }
@@ -177,7 +177,7 @@
                 [defaults setObject:refererPage forKey:@"referer"];
             }
         } else {
-             [defaults setObject:refererPage forKey:@"referer"];
+            [defaults setObject:refererPage forKey:@"referer"];
         }
         [defaults synchronize];
     }
