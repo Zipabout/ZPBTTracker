@@ -73,8 +73,7 @@
         
         [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession,NSInteger responseCode) {
             if(responseCode == 200) {
-            
-                if([session.sessionArray containsObject:pageSession]) {
+          if([session.sessionArray containsObject:pageSession]) {
     
                     [session.sessionArray removeObject:pageSession];
                     

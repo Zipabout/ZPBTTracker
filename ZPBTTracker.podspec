@@ -11,10 +11,9 @@ Pod::Spec.new do |s|
 
   s.name         = "ZPBTTracker"
   s.version      = "1.0.1"
-  s.summary      = "A three-ring control like the Activity status bars"
-  s.description  = "The three-ring is a completely customizable widget that can be used in any iOS app. It also plays a little victory fanfare."
-  s.homepage     = "http://google.com"
-
+  s.summary      = "ZPBTTracker is a mobile SDK for iOS applications, providing access to the Zipabout platform."
+  s.description  = "ZPBTTracker is a mobile SDK for iOS applications, providing access to the Zipabout platform. The SDK records the behaviour of users as they interact with information on your mobile application, in addition to providing a set of services to allow your own application to seamlessly deliver personalised information to your users."
+  s.homepage     = "http://zipabout.com"
   s.license      = "MIT"
 
   s.author       = "Zipabout"
