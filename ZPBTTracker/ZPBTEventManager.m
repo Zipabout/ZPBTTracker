@@ -1,9 +1,9 @@
 //
 //  ZPBTEventManager.m
-//  Zipp.to
+//  ZPBTTracker
 //
-//  Created by Siju Satheesachandran on 08/01/2017.
-//  Copyright © 2017 Siju Satheesachandran. All rights reserved.
+//  Created by Zipabout on 05/01/2017.
+//  Copyright © 2017 Zipabout. All rights reserved.
 //
 
 #import "ZPBTEventManager.h"
@@ -60,7 +60,7 @@
 }
 
 -(void) stopSending {
-    NSLog(@"Timer stopped===========>>>>> ");
+
     [_timer invalidate];
     _timer = nil;
 }
@@ -68,20 +68,19 @@
 -(void) sendEvent{
     Session *session = [Session sharedInstance];
     NSString *eventURL = [Common getEventURL];
-    NSLog(@"Session Count ===========>>>>> %lu", (unsigned long)[session.eventArray count]);
+
     if ([session.eventArray count] > 0 ) {
         Events *event = session.eventArray.firstObject;
         NSString * postString = [self generateEventsPostString:event];
-        NSLog(@"Event Post String================>>>>> %@",postString);
+     
         Webservice *service = [Webservice sharedInstance];
         
         [service  sendRequestToURL:eventURL withData:postString session:event success: ^(NSData *data, Events *event, NSInteger responseCode) {
             if(responseCode == 200) {
-                NSLog(@"================>>>>>%ld",(long)responseCode);
-                NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"================>>>>> %@",string);
+   
+               
                 if([session.eventArray containsObject:event]) {
-                    NSLog(@"Page name===========>>>>> %@", event.clickGUID);
+    
                     [session.eventArray removeObject:event];
                     
                 }

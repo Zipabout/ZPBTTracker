@@ -1,9 +1,9 @@
 //
 //  UIViewController+Logging.m
-//  Zipp.to
+//  ZPBTTracker
 //
 //  Created by Zipabout on 05/01/2017.
-//  Copyright © 2017 Siju Satheesachandran. All rights reserved.
+//  Copyright © 2017 Zipabout. All rights reserved.
 //
 
 

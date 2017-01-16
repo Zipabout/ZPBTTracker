@@ -1,9 +1,9 @@
 //
 //  ZpbtGetSession.m
-//  Zipp.to
+//  ZPBTTracker
 //
-//  Created by Siju Satheesachandran on 06/01/2017.
-//  Copyright © 2017 Siju Satheesachandran. All rights reserved.
+//  Created by Zipabout on 05/01/2017.
+//  Copyright © 2017 Zipabout. All rights reserved.
 //
 
 #import "ZPBTSessionManager.h"
@@ -64,19 +64,19 @@
 -(void) startSession{
     Session *session = [Session sharedInstance];
     NSString *sessionURL = [Common getSessionURL];
-    NSLog(@"Session Count ===========>>>>> %lu", (unsigned long)[session.sessionArray count]);
+
     if ([session.sessionArray count] > 0 ) {
         PageSession *pageSession = session.sessionArray.firstObject;
         NSString * postString = [self generateSessionPostString:pageSession];
-        NSLog(@"Session Post String================>>>>> %@",postString);
+
         Webservice *service = [Webservice sharedInstance];
         
         [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession,NSInteger responseCode) {
             if(responseCode == 200) {
                 NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"================>>>>> %@",string);
+
                 if([session.sessionArray containsObject:pageSession]) {
-                    NSLog(@"Page name===========>>>>> %@", pageSession.clickdestination);
+    
                     [session.sessionArray removeObject:pageSession];
                     
                 }
@@ -91,7 +91,7 @@
 }
 
 -(void) stopSending {
-    NSLog(@"Timer stopped===========>>>>> ");
+
     [_timer invalidate];
     _timer = nil;
 }
