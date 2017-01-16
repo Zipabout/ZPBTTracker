@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.author       = "Zipabout"
   s.platform     = :ios, "8.0"
   
-  s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker", :tag => "1.0.1" }
 
   s.source_files = "ZPBTTracker", "ZPBTTracker/**/*.{h,m}"
 	
