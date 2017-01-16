@@ -22,7 +22,7 @@
 +(NSString *) getLogDate {
     NSDate *date = [NSDate date];
     NSDateFormatter *format =  [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM-dd'T'hh:MM"];
+    [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
     
     NSString *stringFromDate = [format stringFromDate:date];
     return stringFromDate;

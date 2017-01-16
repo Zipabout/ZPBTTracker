@@ -57,38 +57,7 @@
     }
     
     
-    //Create an URLRequest
-    /*NSURL *url = [NSURL URLWithString:URL];
-     
-     
-     // 2
-     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-     request.HTTPMethod = @"POST";
-     
-     // 3
-     NSDictionary *dictionary = @{@"key1": @"value1"};
-     NSError *error = nil;
-     NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
-     options:kNilOptions error:&error];
-     
-     if (!error) {
-     // 4
-     NSURLSessionUploadTask *uploadTask = [defaultSession uploadTaskWithRequest:request
-     fromData:data completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
-     
-     if (error) {
-     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-     NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
-     success(nil,track,error);
-     } else if(data != nil)  {
-     success(data,track,nil);
-     }
-     
-     
-     }];
-     
-     [uploadTask resume];
-     }*/
+
     
 }
 

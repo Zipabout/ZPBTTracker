@@ -72,7 +72,7 @@
         Webservice *service = [Webservice sharedInstance];
         
         [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession,NSInteger responseCode) {
-            if(data != nil) {
+            if(responseCode == 200) {
                 NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"================>>>>> %@",string);
                 if([session.sessionArray containsObject:pageSession]) {
@@ -81,15 +81,7 @@
                     
                 }
             } else {
-                if(responseCode == 0) {
-                    [self stopSending];
-                } else {
-                    if([session.sessionArray containsObject:pageSession]) {
-                        NSLog(@"Page name===========>>>>> %@", pageSession.clickdestination);
-                        [session.sessionArray removeObject:pageSession];
-                        
-                    }
-                }
+                [self stopSending];
             }
         }];
         
@@ -179,7 +171,16 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if (defaults != nil ) {
-        [defaults setObject:refererPage forKey:@"referer"];
+        NSString *referer = [defaults objectForKey:@"referer"];
+        if(referer != nil) {
+            if([referer isEqualToString:refererPage]) {
+                [defaults setObject:@"" forKey:@"referer"];
+            } else {
+                [defaults setObject:refererPage forKey:@"referer"];
+            }
+        } else {
+             [defaults setObject:refererPage forKey:@"referer"];
+        }
         [defaults synchronize];
     }
     

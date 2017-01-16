@@ -76,8 +76,8 @@
         Webservice *service = [Webservice sharedInstance];
         
         [service  sendRequestToURL:eventURL withData:postString session:event success: ^(NSData *data, Events *event, NSInteger responseCode) {
-            if(data != nil) {
-                NSLog(@"================>>>>> %d",responseCode);
+            if(responseCode == 200) {
+                NSLog(@"================>>>>>%ld",(long)responseCode);
                 NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"================>>>>> %@",string);
                 if([session.eventArray containsObject:event]) {
@@ -86,15 +86,7 @@
                     
                 }
             } else {
-                if(responseCode == 0) {
-                    [self stopSending];
-                } else {
-                    if([session.eventArray containsObject:event]) {
-                    
-                        [session.eventArray removeObject:event];
-                        
-                    }
-                }
+                [self stopSending];
             }
             
             
