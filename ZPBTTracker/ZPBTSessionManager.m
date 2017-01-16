@@ -73,8 +73,7 @@
         
         [service  sendRequestToURL:sessionURL withData:postString session:pageSession success: ^(NSData *data,PageSession *pageSession,NSInteger responseCode) {
             if(responseCode == 200) {
-                NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
+            
                 if([session.sessionArray containsObject:pageSession]) {
     
                     [session.sessionArray removeObject:pageSession];
