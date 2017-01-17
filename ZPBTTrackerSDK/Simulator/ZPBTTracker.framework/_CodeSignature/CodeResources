@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/ZPBTEventManager.h</key>
 		<data>
-		Cl5sO8CuNPZFjMf4SNM+/A+iiDo=
+		RLBk8AbGVlBXBzkIQzdnv88umuY=
 		</data>
 		<key>Headers/ZPBTSessionManager.h</key>
 		<data>
-		DEnGVOrsBLau8aeUaAVixpxfzoc=
+		exPBBc0Dd6jOQTQ7JLVm8D2Y69Y=
 		</data>
 		<key>Headers/ZPBTTracker.h</key>
 		<data>
@@ -31,22 +31,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Cl5sO8CuNPZFjMf4SNM+/A+iiDo=
+			RLBk8AbGVlBXBzkIQzdnv88umuY=
 			</data>
 			<key>hash2</key>
 			<data>
-			zf8BRHtVk+rMz1/bhTP6TLpHz9QMaGVJlTyky5WFw/A=
+			VFhY1XU3Bw1r6kWSeeqyF34oPYEJQArkNLAb0jdeaUA=
 			</data>
 		</dict>
 		<key>Headers/ZPBTSessionManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DEnGVOrsBLau8aeUaAVixpxfzoc=
+			exPBBc0Dd6jOQTQ7JLVm8D2Y69Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			QoPnHKLfY70JtmhjVOx3hU/6Nv2MMHS7KP0yktgsSgI=
+			gRgsyNdmnicV//OrEZ6Ym4M9zRU8N6p2sEvWxGrmoSs=
 			</data>
 		</dict>
 		<key>Headers/ZPBTTracker.h</key>
