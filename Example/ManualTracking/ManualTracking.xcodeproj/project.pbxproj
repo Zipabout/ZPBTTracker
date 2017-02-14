@@ -16,8 +16,9 @@
 		CD04ACE81E27D51F0024BEFE /* ManualTrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04ACE71E27D51F0024BEFE /* ManualTrackingTests.swift */; };
 		CD04ACF31E27D70F0024BEFE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04ACF21E27D70F0024BEFE /* ThirdViewController.swift */; };
 		CD04ACF51E27D74D0024BEFE /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD04ACF41E27D74D0024BEFE /* FourthViewController.swift */; };
-		CDC172C81E3FAAA200BC47D0 /* ZPBTTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDC172C61E3FAA9500BC47D0 /* ZPBTTracker.framework */; };
-		CDC172C91E3FAAA200BC47D0 /* ZPBTTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDC172C61E3FAA9500BC47D0 /* ZPBTTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDEF35FE1E53358C00C2617A /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEF35FD1E53358C00C2617A /* Survey.swift */; };
+		CDF6BBD11E53535600D83931 /* ZPBTTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF6BBD01E53535600D83931 /* ZPBTTracker.framework */; };
+		CDF6BBD31E53536F00D83931 /* ZPBTTracker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDF6BBD01E53535600D83931 /* ZPBTTracker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CDC172C91E3FAAA200BC47D0 /* ZPBTTracker.framework in Embed Frameworks */,
+				CDF6BBD31E53536F00D83931 /* ZPBTTracker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +59,8 @@
 		CD04ACE91E27D51F0024BEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD04ACF21E27D70F0024BEFE /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		CD04ACF41E27D74D0024BEFE /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
-		CDC172C61E3FAA9500BC47D0 /* ZPBTTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZPBTTracker.framework; sourceTree = "<group>"; };
+		CDEF35FD1E53358C00C2617A /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		CDF6BBD01E53535600D83931 /* ZPBTTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZPBTTracker.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDC172C81E3FAAA200BC47D0 /* ZPBTTracker.framework in Frameworks */,
+				CDF6BBD11E53535600D83931 /* ZPBTTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +85,7 @@
 		CD04ACC41E27D51F0024BEFE = {
 			isa = PBXGroup;
 			children = (
-				CDC172C61E3FAA9500BC47D0 /* ZPBTTracker.framework */,
+				CDF6BBD01E53535600D83931 /* ZPBTTracker.framework */,
 				CD04ACCF1E27D51F0024BEFE /* ManualTracking */,
 				CD04ACE61E27D51F0024BEFE /* ManualTrackingTests */,
 				CD04ACCE1E27D51F0024BEFE /* Products */,
@@ -111,6 +113,7 @@
 				CD04ACDE1E27D51F0024BEFE /* Info.plist */,
 				CD04ACF21E27D70F0024BEFE /* ThirdViewController.swift */,
 				CD04ACF41E27D74D0024BEFE /* FourthViewController.swift */,
+				CDEF35FD1E53358C00C2617A /* Survey.swift */,
 			);
 			path = ManualTracking;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				CD04ACD51E27D51F0024BEFE /* SecondViewController.swift in Sources */,
 				CD04ACD11E27D51F0024BEFE /* AppDelegate.swift in Sources */,
 				CD04ACF31E27D70F0024BEFE /* ThirdViewController.swift in Sources */,
+				CDEF35FE1E53358C00C2617A /* Survey.swift in Sources */,
 				CD04ACD31E27D51F0024BEFE /* FirstViewController.swift in Sources */,
 				CD04ACF51E27D74D0024BEFE /* FourthViewController.swift in Sources */,
 			);
