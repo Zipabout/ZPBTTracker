@@ -24,6 +24,28 @@
     return sharedInstance;
 }
 
+
+/*
+ @brief ZPBTEventManager provides functionality to pass customParameter objects as a key value pairs, whenever defined events occur in the application
+ 
+ @param  pageName name of the ViewController name.
+ @param  customParameter parameter passed to the event.
+ 
+ @code
+ 
+ NSMutableDictionary *customParameter = [NSMutableDictionary dictionary];
+ [customParameter setObject: @"OXF"  forKey: @"destinationCRS"];
+ [customParameter setObject: @"PAD" forKey:  @"originCRS"];
+ 
+ zpbtEventManager *event = [zpbtEventManager sharedInstance];
+ [event trackEventInPage:NSStringFromClass([self class]) customParameter:customParameter];
+
+ @endcode
+
+ */
+
+
+
 - (void) trackEventInPage:(NSString *) pageName  customParameter: (NSDictionary *) parameter {
     if(parameter != nil) {
         NSString *trackID = [Common getTrackID];

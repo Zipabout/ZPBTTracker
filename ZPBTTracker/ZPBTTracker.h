@@ -20,3 +20,4 @@ FOUNDATION_EXPORT const unsigned char ZPBTTrackerVersionString[];
 
 #import <ZPBTTracker/ZPBTSessionManager.h>
 #import <ZPBTTracker/ZPBTEventManager.h>
+#import <ZPBTTracker/ZPBTCallMethod.h>

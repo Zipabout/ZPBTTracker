@@ -26,7 +26,6 @@
         sharedInstance = [[Session alloc] init];
         sharedInstance.sessionArray = [[NSMutableArray alloc] init];
         sharedInstance.eventArray = [[NSMutableArray alloc] init];
-     
     });
     return sharedInstance;
 }

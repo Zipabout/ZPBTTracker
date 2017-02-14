@@ -20,5 +20,11 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>TrackID</key>
+    <string>221</string>
+    <key>AutomaticTracking</key>
+    <integer>1</integer>
+
 </dict>
+
 </plist>

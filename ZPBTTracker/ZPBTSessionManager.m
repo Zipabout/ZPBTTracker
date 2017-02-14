@@ -1,10 +1,11 @@
 //
-//  ZpbtGetSession.m
+//  ZPBTSessionManager.m
 //  ZPBTTracker
 //
 //  Created by Zipabout on 05/01/2017.
 //  Copyright © 2017 Zipabout. All rights reserved.
 //
+
 
 #import "ZPBTSessionManager.h"
 #import "PageSession.h"
@@ -28,13 +29,30 @@
 }
 
 
+/*!
+ @brief Tracking every view in the page.
+ 
+ @param  pageName name of the ViewController name.
+ 
+ 
+ @code
+ 
+ zpbtSessionManager *session = [zpbtSessionManager sharedInstance];
+ // track current page
+ [session trackSessionInPage:NSStringFromClass([self class])];
+ @endcode
+ 
+ @remark This is a super-easy method.
+ */
+
+
 
 -(void) trackSessionInPage:(NSString *) pageName {
     
     NSString *trackID = [Common getTrackID];
     
     if(trackID != nil) {
-        NSString *userID = [self userID];
+        NSString *userID = [Common userID];
         NSString *clickID = [self clickID];
         NSString *isSession = [self checkSession];
         NSString *referer = [self getPageReferer];
@@ -155,15 +173,7 @@
 }
 
 
-- (NSString *)userID
-{
-    NSString *deviceId = @"";
-    UIDevice *currentDevice = [UIDevice currentDevice];
-    if(currentDevice != nil) {
-        deviceId = [[currentDevice identifierForVendor] UUIDString];
-    }
-    return deviceId;
-}
+
 
 
 - (void) setReferer:(NSString *) refererPage {

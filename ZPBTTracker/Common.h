@@ -17,6 +17,8 @@
 + (NSString *) getSessionURL;
 + (NSString *) getEventURL;
 + (NSString *) getTrackID;
++ (NSString *)userID;
++ (NSString *) getParameterURL;
 + (NSNumber *) automaticSessionTracking;
 + (void) showAlertWithTitle:(NSString *) title andMessage:(NSString *) message;
 @end

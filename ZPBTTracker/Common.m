@@ -30,6 +30,17 @@
     
 }
 
+
++ (NSString *)userID
+{
+    NSString *deviceId = @"";
+    UIDevice *currentDevice = [UIDevice currentDevice];
+    if(currentDevice != nil) {
+        deviceId = [[currentDevice identifierForVendor] UUIDString];
+    }
+    return deviceId;
+}
+
 + (NSString *) getClickIDForPage:(NSString *)pageName {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *pageClikID = nil;
@@ -52,8 +63,17 @@
     [alertController addAction:ok];
     [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alertController animated:true completion:nil];
     
-
     
+}
+
++ (NSString *) getParameterURL {
+    
+    NSString *parameterURL = @"";
+    NSString *trackID  = [self getTrackID];
+    if(trackID != nil) {
+        parameterURL = [NSString stringWithFormat: @"https://c%@.zpbt.uk/sdk/zpbt_callMethod.ashx",trackID];
+    }
+    return parameterURL;
     
 }
 

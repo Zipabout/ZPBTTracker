@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *sessionArray;
 /** This property is an array of Event Object. */
 @property (nonatomic, strong) NSMutableArray *eventArray;
+/** This property is an array of Event Object. */
+@property (nonatomic, strong) NSMutableArray *methodArray;
 +(Session*) sharedInstance;
 
 @end

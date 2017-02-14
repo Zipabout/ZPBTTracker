@@ -2,8 +2,8 @@
 //  ZPBTTrackerTests.m
 //  ZPBTTrackerTests
 //
-//  Created by Siju Satheesachandran on 09/01/2017.
-//  Copyright © 2017 Siju Satheesachandran. All rights reserved.
+//  Created by Zipabout on 05/01/2017.
+//  Copyright © 2017 Zipabout. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
@@ -24,10 +24,7 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
