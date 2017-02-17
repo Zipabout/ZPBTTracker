@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "ZPBTTracker"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "ZPBTTracker is a mobile SDK for iOS applications, providing access to the Zipabout platform."
   s.description  = "ZPBTTracker is a mobile SDK for iOS applications, providing access to the Zipabout platform. The SDK records the behaviour of users as they interact with information on your mobile application, in addition to providing a set of services to allow your own application to seamlessly deliver personalised information to your users."
   s.homepage     = "http://zipabout.com"
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author       = "Zipabout"
   s.platform     = :ios, "8.0"
   
-  s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/Zipabout/ZPBTTracker.git", :tag => "1.0.2" }
 
   s.source_files = "ZPBTTracker", "ZPBTTracker/**/*.{h,m}"
 	
